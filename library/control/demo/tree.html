@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- custom css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" type = "text/css" href = "../theme/current/css/tree.css"/>
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../plugin/jquery/3.3.1/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../toolkit/JString.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../js/JSTree.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+////////////////////////////////////////////////////////////////////////////////
+// 创建对象
+////////////////////////////////////////////////////////////////////////////////
+let node = [
+  {
+    "text": "山东",
+    "image": "../theme/current/img/default_avatar.png",
+    "list": [
+      {
+        "text": "济南",
+        "image": "../theme/current/img/default_avatar.png",
+        "list": [
+          {
+            "text": "历下区",
+            "value": "http://www.baidu.com"
+          },
+          {
+            "text": "市中区",
+            "value": "http://www.baidu.com"
+          },
+          {
+            "text": "天桥区",
+            "value": "http://www.baidu.com"
+          },
+          {
+            "text": "槐荫区",
+            "value": "http://www.baidu.com"
+          }
+        ]
+      },
+      {
+        "text": "聊城"
+      },
+      {
+        "text": "菏泽",
+        "image": "../theme/current/img/default_avatar.png",
+        "value": "http://www.baidu.com"
+      },
+      {
+        "text": "临沂",
+        "value": "http://www.baidu.com"
+      }
+    ]
+  },
+  {
+    "text": "陕西"
+  },
+  {
+    "text": "河北"
+  },
+  {
+    "text": "辽宁",
+    "image": "../theme/current/img/default_avatar.png"
+  }
+];
+let tree = new JSTree();
+tree.setNode(node);
+tree.setClass("tree");
+tree.generateCode();
+////////////////////////////////////////////////////////////////////////////////
+// Start
+////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  // 输出代码
+  $("#outputArea").html(tree.getCode());
+  tree.update();
+  // 绑定事件
+  $(tree.getObject()).click(function() {});
+});
+</script>
+<title>Demo</title>
+</head>
+<body style = "background-color: #fafafa; padding: 0px; margin: 0px;">
+  <div id = "outputArea"></div>
+</body>
+</html>

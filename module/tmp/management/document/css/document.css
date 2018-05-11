@@ -1,0 +1,30 @@
+.SourceListWindow {
+  margin-bottom: 20px;
+}
+
+.SourceListWindow > .panel-body > div > table > tbody > tr > td i:hover {
+  color: #FF8556;
+  cursor: pointer;
+}
+
+/* 设置图标和图标的间距 */
+.SourceListWindow > .panel-body > div > table > tbody > tr > td:last-child > i:first-child {
+  margin-right: 10px;
+}
+
+.SourceRemoveWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.SourceRemoveWindow > .panel-body > div:first-child {
+  text-align: center;
+}
+
+.SourceRemoveWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+.SourceRemoveWindow > .panel-body div:last-child > button:first-child {
+  margin-right: 10px;
+}

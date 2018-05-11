@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- custom css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" type = "text/css" href = "../theme/current/css/restore_button.css"/>
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../plugin/jquery/3.3.1/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../toolkit/JString.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../js/JSButton.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+////////////////////////////////////////////////////////////////////////////////
+// 创建对象
+////////////////////////////////////////////////////////////////////////////////
+let restoreBtn = new JSButton();
+restoreBtn.setText(`
+  <div>
+    <img src = "../theme/current/img/restore_button.png"  alt = "restore_button" />
+  </dvi>
+`);
+restoreBtn.setClass("restore_button");
+restoreBtn.generateCode();
+////////////////////////////////////////////////////////////////////////////////
+// Start
+////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  // 输出代码
+  $("#outputArea").html(restoreBtn.getCode());
+  // 绑定事件
+  $(restoreBtn.getObject()).click(function() {});
+});
+</script>
+<title>Demo</title>
+</head>
+<body style = "background-color: #3448a1;">
+  <div id = "outputArea"></div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+.UserListWindow {
+  margin-bottom: 20px;
+}
+
+.UserListWindow > .panel-body > div:first-child {
+  font-size: 0px;
+}
+
+.UserListWindow > .panel-body > div:first-child > input {
+  float: left;
+}
+
+.UserListWindow > .panel-body > div:first-child > button {
+  margin-left: 20px;
+}
+
+.UserListWindow > .panel-body > div > table > tbody > tr > td i:hover {
+  color: #FF8556;
+  cursor: pointer;
+}
+
+/* 设置图标和图标的间距 */
+.UserListWindow > .panel-body > div > table > tbody > tr > td:last-child > i:first-child {
+  margin-right: 10px;
+}
+
+.UserListWindow > .panel-body div > .JSPagination {
+  text-align: right;
+}
+
+.UserListWindow > .panel-body div > .JSPagination > ul li a {
+  float: none;
+}
+
+.UserCreateWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+/* 消除按钮的间距 */
+.UserCreateWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+/* 重置按钮的间距 */
+.UserCreateWindow > .panel-body > div:last-child > button:first-child {
+  margin-right: 10px;
+}
+
+.UserRemoveWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.UserRemoveWindow > .panel-body > div:first-child {
+  text-align: center;
+}
+
+.UserRemoveWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+.UserRemoveWindow > .panel-body div:last-child > button:first-child {
+  margin-right: 10px;
+}
+
+.UserModifyWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+/* 消除按钮的间距 */
+.UserModifyWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+/* 重置按钮的间距 */
+.UserModifyWindow > .panel-body > div:last-child > button:first-child {
+  margin-right: 10px;
+}

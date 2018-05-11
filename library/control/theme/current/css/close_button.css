@@ -1,0 +1,35 @@
+.close_button {
+  width: 16px;
+  height: 16px;
+  display: table;
+  user-select: none;
+  border-radius: 2px;
+}
+
+.close_button > div {
+  line-height: 0px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.close_button > div > img {
+  border-width: 0px;
+  opacity: 0.6;
+}
+
+.close_button:hover {
+  background-color: #fc4a2d;
+}
+
+.close_button:hover > div > img {
+  opacity: 1;
+}
+
+.close_button:active {
+  opacity: 0.9;
+}
+
+.close_button:active > div > img {
+  opacity: 0.9;
+}

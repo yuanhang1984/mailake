@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../../plugin/jquery/1.12.4/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../../../js/toolkit/Ajax.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/system/Configure.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+////////////////////////////////////////////////////////////////////////////////
+// 输出代码
+////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  let result = Ajax.submit(Configure.getServerUrl() + "user_security/logout/", null, false, true, false);
+  window.location.href = Configure.getWebUrl() + "login/login.html";
+});
+</script>
+<title>Logout</title>
+</head>
+<body>
+</body>
+</html>

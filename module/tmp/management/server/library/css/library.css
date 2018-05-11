@@ -1,0 +1,30 @@
+.LibraryListWindow {
+  margin-bottom: 20px;
+}
+
+.LibraryListWindow > .panel-body > div > table > tbody > tr > td i:hover {
+  color: #FF8556;
+  cursor: pointer;
+}
+
+/* 设置图标和图标的间距 */
+.LibraryListWindow > .panel-body > div > table > tbody > tr > td:last-child > i:first-child {
+  margin-right: 10px;
+}
+
+.LibraryRemoveWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.LibraryRemoveWindow > .panel-body > div:first-child {
+  text-align: center;
+}
+
+.LibraryRemoveWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+.LibraryRemoveWindow > .panel-body div:last-child > button:first-child {
+  margin-right: 10px;
+}

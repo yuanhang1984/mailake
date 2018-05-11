@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- custom css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" type = "text/css" href = "../theme/current/css/avatar.css"/>
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../plugin/jquery/3.3.1/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../toolkit/JString.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../js/JSButton.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+////////////////////////////////////////////////////////////////////////////////
+// 创建对象
+////////////////////////////////////////////////////////////////////////////////
+let avatarBtn = new JSButton();
+avatarBtn.setText(`
+  <img src = "../theme/current/img/default_avatar.png"  alt = "avatar" />
+`);
+avatarBtn.setClass("avatar");
+avatarBtn.generateCode();
+////////////////////////////////////////////////////////////////////////////////
+// Start
+////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  // 输出代码
+  $("#outputArea").html(avatarBtn.getCode());
+  // 绑定事件
+  $(avatarBtn.getObject()).click(function() {});
+});
+</script>
+<title>Demo</title>
+</head>
+<body style = "background-color: #0086f1;">
+  <div id = "outputArea"></div>
+</body>
+</html>

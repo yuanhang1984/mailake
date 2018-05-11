@@ -1,0 +1,12 @@
+.JSPagination {
+  font-size: 0px;
+}
+
+.JSPagination > ul {
+  margin: 0px;
+  font-size: 14px;
+}
+
+.JSPagination > ul li a {
+  cursor: pointer;
+}

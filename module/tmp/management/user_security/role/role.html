@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- plugin css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" href = "../../../../plugin/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel = "stylesheet" href = "../../../../plugin/font-awesome/3.2.1/css/font-awesome.min.css">
+<!-- *********************************************************************** -->
+<!-- custom css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" type = "text/css" href = "../../../../css/global.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSLabel.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSTable.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSButton.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSWindow.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSCheckBox.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSComboBox.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSTextField.css"/>
+<link rel = "stylesheet" type = "text/css" href = "./css/role.css"/>
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../../plugin/jquery/1.12.4/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../plugin/bootstrap/3.3.7/js/bootstrap.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../../../js/toolkit/Ajax.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/toolkit/JString.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/toolkit/Assistant.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/system/Common.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/system/Configure.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSLabel.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSTable.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSButton.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSCheckBox.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSComboBox.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSTextField.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/RoleListWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/RoleCreateWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/RoleRemoveWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/RoleModifyWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/ModulePermissionWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/PermissionModifyWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+////////////////////////////////////////////////////////////////////////////////
+// 获取角色数据
+////////////////////////////////////////////////////////////////////////////////
+function loadRoleList(rlw, pmw) {
+  let result = Ajax.submit(Configure.getServerUrl() + "user_security/getRole/", null, false, true, false);
+  if (!Common.analyseResult(result)) {
+    return false;
+  }
+  rlw.setRoleList(result.detail);
+  pmw.setRoleList(result.detail);
+  $("#roleListWindowArea").html(rlw.mainWindow.getCode());
+  $("#permissionModifyWindowArea").html(pmw.mainWindow.getCode());
+  rlw.update();
+  pmw.update();
+  return true;
+}
+////////////////////////////////////////////////////////////////////////////////
+// 获取所有权限
+////////////////////////////////////////////////////////////////////////////////
+function loadPermissionList(permissionList) {
+  let result = Ajax.submit(Configure.getServerUrl() + "antcolony/getPermissionList/", null, false, true, false);
+  if (!Common.analyseResult(result)) {
+    return false;
+  }
+  let list = result.detail;
+  for (let i = 0; i < list.length; i++) {
+    let modName = list[i].module;
+    let modList = new Array();
+    for (let j = 0; j < list[i].servlet.length; j++) {
+      let name = modName;
+      let label = list[i].servlet[j].name;
+      let value = list[i].servlet[j].value;
+      let obj = {
+        "name": name,
+        "label": label,
+        "value": value,
+        "checked": false
+      };
+      modList.push(obj);
+    }
+    let modObj = {
+      "name": modName,
+      "list": modList
+    };
+    permissionList.push(modObj);
+  }
+  return true;
+}
+////////////////////////////////////////////////////////////////////////////////
+// 输出代码
+////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  //////////////////////////////////////////////////////////////////////////////
+  // RoleCreateWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let rcw = new RoleCreateWindow();
+  //////////////////////////////////////////////////////////////////////////////
+  // RoleRemoveWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let rrw = new RoleRemoveWindow();
+  //////////////////////////////////////////////////////////////////////////////
+  // RoleModifyWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let rmw = new RoleModifyWindow();
+  //////////////////////////////////////////////////////////////////////////////
+  // RoleListWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let rlw = new RoleListWindow(rcw, rrw, rmw);
+  //////////////////////////////////////////////////////////////////////////////
+  // PermissionModifyWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let modulePermissionList = new Array();
+  loadPermissionList(modulePermissionList);
+  let mpwList = new Array();
+  let modulePermissionCode = "";
+  for (let i = 0; i < modulePermissionList.length; i++) {
+    let mp = modulePermissionList[i];
+    let mpw = new ModulePermissionWindow(mp.name, mp.list);
+    mpwList.push(mpw);
+    modulePermissionCode += mpw.mainWindow.getCode();
+  }
+  let pmw = new PermissionModifyWindow(modulePermissionCode);
+  //////////////////////////////////////////////////////////////////////////////
+  // 获取角色数据
+  //////////////////////////////////////////////////////////////////////////////
+  loadRoleList(rlw, pmw);
+  $("#roleListWindowArea").html(rlw.mainWindow.getCode());
+  $("#permissionModifyWindowArea").html(pmw.mainWindow.getCode());
+  $("#roleCreateWindowArea").html(rcw.mainWindow.getCode());
+  $("#roleRemoveWindowArea").html(rrw.mainWindow.getCode());
+  $("#roleModifyWindowArea").html(rmw.mainWindow.getCode());
+  //////////////////////////////////////////////////////////////////////////////
+  // 绑定每个模块权限窗口的全选事件
+  //////////////////////////////////////////////////////////////////////////////
+  for (let i = 0; i < mpwList.length; i++) {
+    mpwList[i].update();
+  }
+  rcw.update(loadRoleList, rlw, pmw);
+  rrw.update(loadRoleList, rlw, pmw);
+  rmw.update(loadRoleList, rlw, pmw);
+  rlw.update();
+  pmw.update();
+});
+</script>
+<title>Role</title>
+</head>
+<body>
+  <div id = "roleListWindowArea"></div>
+  <div id = "permissionModifyWindowArea"></div>
+  <div id = "roleCreateWindowArea"></div>
+  <div id = "roleRemoveWindowArea"></div>
+  <div id = "roleModifyWindowArea"></div>
+</body>
+</html>

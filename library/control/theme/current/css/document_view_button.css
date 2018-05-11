@@ -1,0 +1,35 @@
+.document_view_button {
+  width: 16px;
+  height: 16px;
+  display: table;
+  user-select: none;
+  border-radius: 2px;
+}
+
+.document_view_button > div {
+  line-height: 0px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.document_view_button > div > img {
+  border-width: 0px;
+  opacity: 0.6;
+}
+
+.document_view_button:hover > div > img {
+  opacity: 1;
+}
+
+.document_view_button:active {
+  opacity: 0.9;
+}
+
+.document_view_button:active > div > img {
+  opacity: 0.9;
+}
+
+.document_view_button_click > div > img {
+  opacity: 1;
+}

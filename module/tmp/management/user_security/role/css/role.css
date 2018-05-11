@@ -1,0 +1,79 @@
+.RoleListWindow {
+  margin-bottom: 20px;
+}
+
+.RoleListWindow > .panel-body > div > table > tbody > tr > td i:hover {
+  color: #FF8556;
+  cursor: pointer;
+}
+
+/* 设置图标和图标的间距 */
+.RoleListWindow > .panel-body > div > table > tbody > tr > td:last-child > i:first-child {
+  margin-right: 10px;
+}
+
+.RoleCreateWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+/* 消除按钮的间距 */
+.RoleCreateWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+/* 重置按钮的间距 */
+.RoleCreateWindow > .panel-body > div:last-child > button:first-child {
+  margin-right: 10px;
+}
+
+.RoleRemoveWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.RoleRemoveWindow > .panel-body > div:first-child {
+  text-align: center;
+}
+
+.RoleRemoveWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+.RoleRemoveWindow > .panel-body div:last-child > button:first-child {
+  margin-right: 10px;
+}
+
+.RoleModifyWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+/* 消除按钮的间距 */
+.RoleModifyWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+/* 重置按钮的间距 */
+.RoleModifyWindow > .panel-body > div:last-child > button:first-child {
+  margin-right: 10px;
+}
+
+.PermissionModifyWindow > .panel-body > div {
+  text-align: center;
+}
+
+.PermissionModifyWindow > .panel-body > .input-group > div:first-child {
+  margin-bottom: 0px;
+}
+
+.ModulePermissionWindow > .panel-body {
+  padding-bottom: 0px;
+}
+
+.ModulePermissionWindow > .panel-body > div span {
+  float: left;
+  display: block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}

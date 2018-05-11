@@ -1,0 +1,25 @@
+.ServiceWindow {
+  margin-bottom: 20px;
+}
+
+/* 消除按钮的间距 */
+.ServiceWindow .panel-body div:last-child {
+  font-size: 0px;
+}
+
+.ServiceWindow .panel-body div button:first-child {
+  margin-right: 10px;
+}
+
+/******************************************************************************/
+/* LogWindow */
+/******************************************************************************/
+/* 消除按钮的间距 */
+.LogWindow .panel-body div:last-child {
+  font-size: 0px;
+}
+
+.LogWindow .panel-body div:nth-child(2) button:nth-child(2) {
+  margin-left: 10px;
+  margin-right: 10px;
+}

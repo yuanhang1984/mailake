@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- plugin css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" href = "../../../../plugin/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel = "stylesheet" href = "../../../../plugin/font-awesome/3.2.1/css/font-awesome.min.css">
+<!-- *********************************************************************** -->
+<!-- custom css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" type = "text/css" href = "../../../../css/global.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSLabel.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSTable.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSButton.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSWindow.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSCheckBox.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSComboBox.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSTextField.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSPagination.css"/>
+<link rel = "stylesheet" type = "text/css" href = "./css/user.css"/>
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../../plugin/jquery/1.12.4/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../plugin/bootstrap/3.3.7/js/bootstrap.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../../../js/toolkit/Ajax.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/toolkit/JString.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/toolkit/Assistant.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/system/Common.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/system/Configure.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSLabel.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSTable.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSButton.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSCheckBox.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSComboBox.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSTextField.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSPagination.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/UserListWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/UserCreateWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/UserRemoveWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/UserModifyWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+////////////////////////////////////////////////////////////////////////////////
+// 输出代码
+////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  //////////////////////////////////////////////////////////////////////////////
+  // UserCreateWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let ucw = new UserCreateWindow();
+  //////////////////////////////////////////////////////////////////////////////
+  // UserRemoveWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let urw = new UserRemoveWindow();
+  //////////////////////////////////////////////////////////////////////////////
+  // UserModifyWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let umw = new UserModifyWindow();
+  //////////////////////////////////////////////////////////////////////////////
+  // UserListWindow对象
+  //////////////////////////////////////////////////////////////////////////////
+  let ulw = new UserListWindow(ucw, urw, umw);
+  //////////////////////////////////////////////////////////////////////////////
+  // 设置列表对象，便于加载最新数据
+  //////////////////////////////////////////////////////////////////////////////
+  urw.setUserListWindow(ulw);
+  umw.setUserListWindow(ulw);
+  $("#userListWindowArea").html(ulw.mainWindow.getCode());
+  $("#userCreateWindowArea").html(ucw.mainWindow.getCode());
+  $("#userRemoveWindowArea").html(urw.mainWindow.getCode());
+  $("#userModifyWindowArea").html(umw.mainWindow.getCode());
+  ucw.update();
+  urw.update();
+  ulw.update();
+});
+</script>
+<title>User</title>
+</head>
+<body>
+  <div id = "userListWindowArea"></div>
+  <div id = "userCreateWindowArea"></div>
+  <div id = "userModifyWindowArea"></div>
+  <div id = "userRemoveWindowArea"></div>
+</body>
+</html>

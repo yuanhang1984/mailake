@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- custom css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" type = "text/css" href = "../theme/current/css/list_view_button.css"/>
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../plugin/jquery/3.3.1/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../toolkit/JString.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../js/JSButton.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+////////////////////////////////////////////////////////////////////////////////
+// 创建对象
+////////////////////////////////////////////////////////////////////////////////
+let listViewBtn = new JSButton();
+listViewBtn.setText(`
+  <div>
+    <img src = "../theme/current/img/list_view_button.png"  alt = "list_view_button" />
+  </dvi>
+`);
+listViewBtn.setClass("list_view_button");
+listViewBtn.generateCode();
+////////////////////////////////////////////////////////////////////////////////
+// Start
+////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  // 输出代码
+  $("#outputArea").html(listViewBtn.getCode());
+  // 绑定事件
+  $(listViewBtn.getObject()).click(function() {
+    $(this).addClass("list_view_button_click");
+  });
+});
+</script>
+<title>Demo</title>
+</head>
+<body style = "background-color: #3448a1;">
+  <div id = "outputArea"></div>
+</body>
+</html>

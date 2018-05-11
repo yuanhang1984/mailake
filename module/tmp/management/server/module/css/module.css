@@ -1,0 +1,78 @@
+.ModuleListWindow {
+  margin-bottom: 20px;
+}
+
+.ModuleListWindow > .panel-body > div > table > tbody > tr > td i:hover {
+  color: #FF8556;
+  cursor: pointer;
+}
+
+/* 设置图标和图标的间距 */
+.ModuleListWindow > .panel-body > div > table > tbody > tr > td:last-child > i:first-child {
+  margin-right: 10px;
+}
+
+.ModuleCreateWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+/* 消除按钮的间距 */
+.ModuleCreateWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+/* 重置按钮的间距 */
+.ModuleCreateWindow > .panel-body > div:last-child > button:first-child {
+  margin-right: 10px;
+}
+
+.ModuleRemoveWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.ModuleRemoveWindow > .panel-body > div:first-child {
+  text-align: center;
+}
+
+.ModuleRemoveWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+.ModuleRemoveWindow > .panel-body div:last-child > button:first-child {
+  margin-right: 10px;
+}
+
+.ModuleModifyWindow {
+  width: 400px;
+  margin-top: 20px;
+}
+
+/* 消除按钮的间距 */
+.ModuleModifyWindow > .panel-body > div:last-child {
+  font-size: 0px;
+}
+
+/* 重置按钮的间距 */
+.ModuleModifyWindow > .panel-body > div:last-child > button:first-child {
+  margin-right: 10px;
+}
+
+/* 消除按钮的间距 */
+.ResourceFileWindow .panel-body div:last-child {
+  font-size: 0px;
+}
+
+.ResourceFileWindow .panel-body div form {
+  display: inline;
+}
+
+.ResourceFileWindow .panel-body div > textarea {
+  height: 400px;
+}
+
+.ResourceFileWindow .panel-body div form button:last-child{
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- plugin css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" href = "../../../../plugin/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel = "stylesheet" href = "../../../../plugin/font-awesome/3.2.1/css/font-awesome.min.css">
+<!-- *********************************************************************** -->
+<!-- custom css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" type = "text/css" href = "../../../../css/global.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSButton.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSWindow.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSComboBox.css"/>
+<link rel = "stylesheet" type = "text/css" href = "../../../../lib/css/default_theme/JSTextArea.css"/>
+<link rel = "stylesheet" type = "text/css" href = "./css/console.css"/>
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../../plugin/jquery/1.12.4/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../plugin/bootstrap/3.3.7/js/bootstrap.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../../../js/toolkit/Ajax.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/toolkit/JString.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/toolkit/Assistant.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/system/Common.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../js/system/Configure.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSButton.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSComboBox.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../../../../lib/js/JSTextArea.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/LogWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "./js/ServiceWindow.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+// ServiceWindow对象
+//////////////////////////////////////////////////////////////////////////////
+let sw = new ServiceWindow();
+//////////////////////////////////////////////////////////////////////////////
+// LogWindow对象
+//////////////////////////////////////////////////////////////////////////////
+let lw = new LogWindow();
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+// 输出代码
+//////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  $("#serviceWindowArea").html(sw.mainWindow.getCode());
+  $("#logWindowArea").html(lw.mainWindow.getCode());
+  $(sw.stopBtn.getObject()).prop("disabled", true);
+  $(lw.stopBtn.getObject()).prop("disabled", true);
+  $(lw.mainWindow.getObject()).find(".panel-body").find("div").find("textarea").css("height", "400px");
+  sw.update();
+  lw.update();
+});
+</script>
+<title>Console</title>
+</head>
+<body>
+  <div id = "serviceWindowArea"></div>
+  <div id = "logWindowArea"></div>
+</body>
+</html>

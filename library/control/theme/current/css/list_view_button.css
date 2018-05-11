@@ -1,0 +1,35 @@
+.list_view_button {
+  width: 16px;
+  height: 16px;
+  display: table;
+  user-select: none;
+  border-radius: 2px;
+}
+
+.list_view_button > div {
+  line-height: 0px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.list_view_button > div > img {
+  border-width: 0px;
+  opacity: 0.6;
+}
+
+.list_view_button:hover > div > img {
+  opacity: 1;
+}
+
+.list_view_button:active {
+  opacity: 0.9;
+}
+
+.list_view_button:active > div > img {
+  opacity: 0.9;
+}
+
+.list_view_button_click > div > img {
+  opacity: 1;
+}

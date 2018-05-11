@@ -1,0 +1,10 @@
+﻿<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE xml>
+<configure>
+    <!-- 主题配置 -->
+    <!--
+        [theme]
+            name: 主题的名称.
+    -->
+    <theme name = "classic" />
+</configure>

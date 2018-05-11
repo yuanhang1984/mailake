@@ -1,0 +1,31 @@
+.menu_button {
+  width: 16px;
+  height: 16px;
+  display: table;
+  user-select: none;
+  border-radius: 2px;
+}
+
+.menu_button > div {
+  line-height: 0px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.menu_button > div > img {
+  border-width: 0px;
+  opacity: 0.6;
+}
+
+.menu_button:hover > div > img {
+  opacity: 1;
+}
+
+.menu_button:active {
+  opacity: 0.9;
+}
+
+.menu_button:active > div > img {
+  opacity: 0.9;
+}

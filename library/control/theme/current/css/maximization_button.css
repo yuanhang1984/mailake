@@ -1,0 +1,31 @@
+.maximization_button {
+  width: 16px;
+  height: 16px;
+  display: table;
+  user-select: none;
+  border-radius: 2px;
+}
+
+.maximization_button > div {
+  line-height: 0px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.maximization_button > div > img {
+  border-width: 0px;
+  opacity: 0.6;
+}
+
+.maximization_button:hover > div > img {
+  opacity: 1;
+}
+
+.maximization_button:active {
+  opacity: 0.9;
+}
+
+.maximization_button:active > div > img {
+  opacity: 0.9;
+}

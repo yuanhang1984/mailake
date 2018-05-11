@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8" />
+<!-- *********************************************************************** -->
+<!-- custom css -->
+<!-- *********************************************************************** -->
+<link rel = "stylesheet" type = "text/css" href = "../theme/current/css/menu_button.css"/>
+<!-- *********************************************************************** -->
+<!-- plugin js -->
+<!-- *********************************************************************** -->
+<script src = "../../../plugin/jquery/3.3.1/jquery.min.js" type = "text/javascript" charset = "utf-8"></script>
+<!-- *********************************************************************** -->
+<!-- custom js -->
+<!-- *********************************************************************** -->
+<script src = "../../toolkit/JString.js" type = "text/javascript" charset = "utf-8"></script>
+<script src = "../js/JSButton.js" type = "text/javascript" charset = "utf-8"></script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// ECMAScript规范
+////////////////////////////////////////////////////////////////////////////////
+"use strict";
+////////////////////////////////////////////////////////////////////////////////
+// 创建对象
+////////////////////////////////////////////////////////////////////////////////
+let menuBtn = new JSButton();
+menuBtn.setText(`
+  <div>
+    <img src = "../theme/current/img/menu_button.png"  alt = "menu_button" />
+  </dvi>
+`);
+menuBtn.setClass("menu_button");
+menuBtn.generateCode();
+////////////////////////////////////////////////////////////////////////////////
+// Start
+////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function() {
+  // 输出代码
+  $("#outputArea").html(menuBtn.getCode());
+  // 绑定事件
+  $(menuBtn.getObject()).click(function() {});
+});
+</script>
+<title>Demo</title>
+</head>
+<body style = "background-color: #3448a1;">
+  <div id = "outputArea"></div>
+</body>
+</html>
