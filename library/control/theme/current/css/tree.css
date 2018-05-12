@@ -8,39 +8,24 @@
   padding-left: 18px;
 }
 
-.tree li {
-  height: 18px;
-  margin-bottom: 8px;
+/* 列表高度 */
+.tree li, .tree .libg, .tree li div {
+  height: 26px;
+  line-height: 26px;
 }
 
 .tree li img {
   float: left;
   width: 18px;
   height: 18px;
+  /* (列表高度-这里的height) / 2 = margin-top */
+  margin-top: 4px;
   margin-right: 6px;
-}
-
-.tree li div {
-  height: 18px;
-  float: left;
-}
-
-.tree .child {
-  list-style-type: none;
-}
-
-.tree .parent {
-  line-height: 18px;
-  padding-left: 18px;
-  list-style-type: none;
-  background-repeat: no-repeat;
-  background-image: url("../img/tree_arrow_close.png");
 }
 
 .tree .libg {
   left: 0px;
   width: 100%;
-  height: 18px;
   opacity: 0.4;
   position: absolute;
 }
@@ -53,60 +38,17 @@
   background-color: #82aadb;
 }
 
-.tree2 {
-  color: #FFFFFF;
-  cursor: default;
-  font-size: 14px;
-  text-align: left;
-  list-style: none;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  /* background-color: #353F4F; */
-  background-color: pink;
+.tree .child {
+  list-style-type: none;
 }
 
-/* 清除ul默认样式 */
-.tree2 ul {
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  list-style: none;
-}
-
-/* 清除li默认样式 */
-.tree2 li {
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-}
-
-/* 鼠标停放时的样式 */
-.tree2 li:hover {
-  color: #FF8556;
-  background-color: #2A323F;
-}
-
-/* 设置子菜单的间距 */
-.tree2 ul li a {
-  color: #FFFFFF;
-  display: block;
-  text-decoration: none;
-  margin: 0px 0px 0px 0px;
-  padding: 10px 10px 10px 40px;
-}
-
-/* 如果带有<i>的图标，图标右侧留有10px的空间 */
-.tree2 i {
-  margin: 0px 10px 0px 0px;
-}
-
-/* 设置父菜单的间距 */
-.tree2 li span {
-  color: #FF8556;
-  display: block;
-  margin: 0px 0px 0px 0px;
-  padding: 10px 10px 10px 20px;
-}
-
-/* 活动链接的样式 */
-.tree2 ul .active {
-  background-color: #2A323F;
+.tree .parent {
+  line-height: 18px;
+  padding-left: 18px;
+  list-style-type: none;
+  background-size: 8px 18px;
+  background-repeat: no-repeat;
+  /* (列表高度-这里的background-size中的高度) / 2 = background-position-y */
+  background-position-y: 4px;
+  background-image: url("../img/tree_arrow_close.png");
 }

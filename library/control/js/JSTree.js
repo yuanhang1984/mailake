@@ -103,7 +103,6 @@ class JSTree {
       }
       if ((undefined == obj.list) || (0 >= obj.list.length)) {
         // 子菜单
-        // ulCode += `<div class = "libg" data-value = "${obj.value}"></div><li class = "child"><a href = "${obj.value}">${imgCode}${obj.text}</a></li>`;
         ulCode += `<div class = "libg" data-value = "${obj.value}"></div><li class = "child">${imgCode}${obj.text}</li>`;
       } else {
         // 父菜单
