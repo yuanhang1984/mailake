@@ -71,10 +71,10 @@ class JSTree {
     this.objectNode = node;
   }
 
-  update() {
+  eventBind() {
     // 绑定事件
     let _this = this;
-    $(this.getObject()).find(".libg").click(function() {
+    $(this.getObject()).find(".libg").off("click").on("click", function() {
       if (null != _this.objectLastSelected) {
         _this.objectLastSelected.removeClass("libg_active");
       }

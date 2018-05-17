@@ -85,7 +85,7 @@ tree.generateCode();
 $(document).ready(function() {
   // 输出代码
   $("#outputArea").html(tree.getCode());
-  tree.update();
+  tree.eventBind();
   // 绑定事件
   $(tree.getObject()).click(function() {});
 });
