@@ -50,5 +50,13 @@
   background-repeat: no-repeat;
   /* (列表高度-这里的background-size中的高度) / 2 = background-position-y */
   background-position-y: 4px;
+  /* background-image: url("../img/tree_arrow_close.png"); */
+}
+
+.tree .parent_open {
+  background-image: url("../img/tree_arrow_open.png");
+}
+
+.tree .parent_close {
   background-image: url("../img/tree_arrow_close.png");
 }

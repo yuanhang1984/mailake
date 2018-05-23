@@ -105,22 +105,28 @@ class JSComboBox {
   eventBind() {
     let _this = this;
     // 点击显示菜单事件
-    $(this.getObject()).find(".button").off("click").on("click", function() {
-      $(_this.getObject()).find(".list").css("display", "block");
+    $(this.getObject()).children(".button").off("click").on("click", function() {
+      $(_this.getObject()).children(".list").css("display", "block");
       let cbTop = $(_this.getObject()).offset().top;
       let cbLeft = $(_this.getObject()).offset().left;
       let cbWidth = $(_this.getObject()).width();
       let cbHeight = $(_this.getObject()).height();
       let cbBorderWidth = parseInt($(_this.getObject()).css("border-width"));
-      $(_this.getObject()).find(".list").css("top", (cbTop + cbHeight + (cbBorderWidth * 2) + _this.objectListAdjustTop) + "px");
-      $(_this.getObject()).find(".list").css("left", (cbLeft + cbBorderWidth * (-1) + cbBorderWidth + _this.objectListAdjustLeft) + "px");
+      let cbPosition = $(_this.getObject()).css("position");
+      if ("static" == cbPosition.toLowerCase()) {
+        $(_this.getObject()).children(".list").css("top", (cbTop + cbHeight + (cbBorderWidth * 2) + _this.objectListAdjustTop) + "px");
+        $(_this.getObject()).children(".list").css("left", (cbLeft + cbBorderWidth * (-1) + cbBorderWidth + _this.objectListAdjustLeft) + "px");
+      } else if ("absolute" == cbPosition.toLowerCase()) {
+        $(_this.getObject()).children(".list").css("top", (cbHeight + cbBorderWidth + _this.objectListAdjustTop) + "px");
+        $(_this.getObject()).children(".list").css("left", (cbBorderWidth * (-1) + _this.objectListAdjustLeft) + "px");
+      }
     });
     // 控件失去焦点隐藏菜单事件
     $(this.getObject()).off("blur").on("blur", function() {
-      $(_this.getObject()).find(".list").css("display", "none");
+      $(_this.getObject()).children(".list").css("display", "none");
     });
     // 菜单鼠标点击事件
-    $(this.getObject()).find(".list").find("ul").find("li").off("click").on("click", function() {
+    $(this.getObject()).children(".list").children("ul").find("li").off("click").on("click", function() {
       if (!$(this).hasClass("disabled")) {
         let currentText = $(this).attr("data-text");
         let currentValue = $(this).attr("data-value");
@@ -128,28 +134,28 @@ class JSComboBox {
         _this.objectSelectedIndex = currentIndex;
         // 需要判断buttonType类型，判断是否需要更改button的text。
         if ("text" == _this.objectButtonType) {
-          $(_this.getObject()).find(".button").text(currentText);
+          $(_this.getObject()).children(".button").text(currentText);
         }
         // 重置已选列表
-        $(_this.getObject()).find(".list").find("ul").find("li").find(".select").html("");
+        $(_this.getObject()).children(".list").children("ul").find("li").children(".select").html("");
         // 勾选当前选择列表
-        $(this).find(".select").html("&radic;");
+        $(this).children(".select").html("&radic;");
         // 设置选择值至控件
         $(_this.getObject()).attr("data-text", currentText);
         $(_this.getObject()).attr("data-value", currentValue);
         $(_this.getObject()).attr("data-index", currentIndex);
         // 隐藏菜单
-        $(_this.getObject()).find(".list").css("display", "none");
+        $(_this.getObject()).children(".list").css("display", "none");
       }
     });
     // 根据objectSelectedIndex设置List选中样式
-    $(this.getObject()).find(".list").find("ul").find("li").each(function() {
+    $(this.getObject()).children(".list").children("ul").find("li").each(function() {
       let currentValue = $(this).attr("data-value");
       if (currentValue == _this.objectItemList[_this.objectSelectedIndex].value) {
         // 更新内容
         $(_this.getObject()).attr("data-value", currentValue);
         // 标记选项
-        $(this).find(".select").html("&radic;");
+        $(this).children(".select").html("&radic;");
         return;
       }
     });

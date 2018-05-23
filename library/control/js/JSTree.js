@@ -31,6 +31,7 @@ class JSTree {
    *   {
    *     "text": "山东",
    *     "image": "1.png",
+   *     "open": false,
    *     "list": [
    *       {
    *         "text": "济南",
@@ -72,7 +73,7 @@ class JSTree {
   }
 
   eventBind() {
-    // 绑定事件
+    // 绑定点击显示事件
     let _this = this;
     $(this.getObject()).find(".libg").off("click").on("click", function() {
       if (null != _this.objectLastSelected) {
@@ -80,6 +81,23 @@ class JSTree {
       }
       $(this).addClass("libg_active");
       _this.objectLastSelected = $(this);
+    });
+    // 绑定折叠菜单事件
+    $(this.getObject()).find(".libg_parent").off("click").on("click", function() {
+      let open = $(this).attr("data-open");
+      if ("true" == open) {
+        $(this).parent().children("ul").css("display", "none");
+        $(this).attr("data-open", "false");
+        let obj = $(this).parent().children(".parent_open");
+        obj.removeClass("parent_open");
+        obj.addClass("parent_close");
+      } else {
+        $(this).parent().children("ul").css("display", "block");
+        $(this).attr("data-open", "true");
+        let obj = $(this).parent().children(".parent_close");
+        obj.removeClass("parent_close");
+        obj.addClass("parent_open");
+      }
     });
   }
 
@@ -106,7 +124,13 @@ class JSTree {
         ulCode += `<div class = "libg" data-value = "${obj.value}"></div><li class = "child">${imgCode}${obj.text}</li>`;
       } else {
         // 父菜单
-        ulCode += `<div class = "libg"></div><li class = "parent">${imgCode}<div>${obj.text}</div></li>`;
+        let imgClsCode = "";
+        if (obj.open) {
+          imgClsCode = "parent_open";
+        } else {
+          imgClsCode = "parent_close";
+        }
+        ulCode += `<div class = "libg libg_parent" data-open = "${obj.open}"></div><li class = "parent ${imgClsCode}">${imgCode}<div>${obj.text}</div></li>`;
       }
       let subNode = "";
       if ((undefined != obj.list) && (0 < obj.list.length)) {
